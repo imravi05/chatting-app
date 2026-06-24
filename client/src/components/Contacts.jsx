@@ -68,9 +68,9 @@ const Container = styled.div`
   display: grid;
   grid-template-rows: 10% 75% 15%;
   overflow: hidden;
-  background: linear-gradient(135deg, #222230 0%, #1a1a25 100%);
+  background: rgba(10, 10, 20, 0.4);
   box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.5);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(138, 43, 226, 0.2);
   
   @media screen and (max-width: 720px) {
     grid-template-rows: 8% 70% 22%;
@@ -81,17 +81,18 @@ const Container = styled.div`
     align-items: center;
     gap: 1rem;
     justify-content: center;
-    background: linear-gradient(90deg, #3a3a4e 0%, #2d2d3e 100%);
+    background: rgba(20, 20, 40, 0.4);
+    backdrop-filter: blur(5px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
     
     h3 {
-      color: #e8e8f0;
+      color: #fff;
       text-transform: uppercase;
       font-size: 1.3rem;
       font-weight: 700;
       letter-spacing: 1.5px;
-      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+      text-shadow: 0 0 10px rgba(138, 43, 226, 0.8), 0 0 20px rgba(138, 43, 226, 0.4);
       
       @media screen and (max-width: 600px) {
         font-size: 1rem;
@@ -106,30 +107,30 @@ const Container = styled.div`
     overflow: auto;
     gap: 0.6rem;
     padding: 0.8rem 0;
-    background: linear-gradient(180deg, rgba(34, 34, 48, 0.8) 0%, rgba(26, 26, 38, 0.9) 100%);
+    background: transparent;
     
     &::-webkit-scrollbar {
       width: 5px;
       
       &-thumb {
-        background: rgba(100, 100, 120, 0.6);
+        background: rgba(138, 43, 226, 0.4);
         border-radius: 10px;
         transition: all 0.3s ease;
       }
       
       &-thumb:hover {
-        background: rgba(120, 120, 150, 0.8);
+        background: rgba(138, 43, 226, 0.8);
       }
     }
     
     .contact {
-      background: linear-gradient(135deg, rgba(70, 70, 90, 0.4) 0%, rgba(60, 60, 80, 0.3) 100%);
+      background: rgba(20, 20, 40, 0.3);
       backdrop-filter: blur(10px);
       min-height: 4rem;
       cursor: pointer;
       width: 90%;
       border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(138, 43, 226, 0.1);
       padding: 0.6rem 0.8rem;
       display: flex;
       gap: 0.8rem;
@@ -138,10 +139,10 @@ const Container = styled.div`
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
       
       &:hover {
-        background: linear-gradient(135deg, rgba(80, 80, 110, 0.5) 0%, rgba(70, 70, 100, 0.4) 100%);
-        border-color: rgba(255, 255, 255, 0.15);
+        background: rgba(138, 43, 226, 0.2);
+        border-color: rgba(138, 43, 226, 0.4);
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
       }
       
       .avatar {
@@ -156,7 +157,7 @@ const Container = styled.div`
       }
       
       &:hover .avatar img {
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 12px rgba(138, 43, 226, 0.5);
         transform: scale(1.05);
       }
       
@@ -174,20 +175,22 @@ const Container = styled.div`
     }
     
     .selected {
-      background: linear-gradient(135deg, rgba(80, 100, 130, 0.6) 0%, rgba(70, 90, 120, 0.5) 100%);
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, rgba(138, 43, 226, 0.5) 0%, rgba(218, 112, 214, 0.4) 100%);
+      border-color: rgba(218, 112, 214, 0.6);
+      box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
       
       .username h3 {
         color: #ffffff;
         font-weight: 700;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
       }
     }
   }
 
   .current-user {
-    background: linear-gradient(135deg, #1a1a25 0%, #222230 100%);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 15, 30, 0.6);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(138, 43, 226, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -206,14 +209,14 @@ const Container = styled.div`
         height: 2.5rem;
         width: 2.5rem;
         border-radius: 50%;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-        border: 2px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+        border: 2px solid rgba(138, 43, 226, 0.5);
         transition: all 0.3s ease;
         flex-shrink: 0;
       }
       
       &:hover img {
-        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
         transform: scale(1.05);
       }
     }
@@ -227,6 +230,7 @@ const Container = styled.div`
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 120px;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
       }
       
       @media screen and (max-width: 600px) {

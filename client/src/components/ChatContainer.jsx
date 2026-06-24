@@ -115,7 +115,7 @@ const Container = styled.div`
   grid-template-rows: 8% 84% 8%;
   gap: 0;
   overflow: hidden;
-  background: linear-gradient(135deg, #222230 0%, #1a1a25 100%);
+  background: transparent;
   
   @keyframes fadeIn {
     from {
@@ -157,9 +157,10 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5rem;
-    background: linear-gradient(90deg, rgba(70, 70, 90, 0.2) 0%, rgba(60, 60, 80, 0.15) 100%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    background: rgba(15, 15, 30, 0.4);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     
     @media screen and (min-width: 720px) and (max-width: 1080px) {
       padding: 0 1rem;
@@ -178,15 +179,15 @@ const Container = styled.div`
           height: 2.2rem;
           width: 2.2rem;
           border-radius: 50%;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-          border: 2px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 0 10px rgba(138, 43, 226, 0.4);
+          border: 2px solid rgba(138, 43, 226, 0.3);
           transition: all 0.3s ease;
           flex-shrink: 0;
         }
       }
       
       &:hover .avatar img {
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
       }
       
       .username {
@@ -197,6 +198,7 @@ const Container = styled.div`
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
+          text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
         }
       }
     }
@@ -208,17 +210,23 @@ const Container = styled.div`
     gap: 0.8rem;
     overflow: auto;
     padding: 1rem 1.5rem;
-    background: linear-gradient(180deg, rgba(34, 34, 48, 0.6) 0%, rgba(26, 26, 38, 0.8) 100%);
+    background-color: #0b0b1a;
+    background-image: 
+      radial-gradient(circle at 30% 70%, rgba(73, 29, 136, 0.4), transparent 60%),
+      radial-gradient(circle at 70% 30%, rgba(29, 116, 136, 0.3), transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='rgba(255,255,255,0.9)'/%3E%3Ccircle cx='100' cy='50' r='0.5' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='150' cy='150' r='1.5' fill='rgba(255,255,255,0.7)'/%3E%3Ccircle cx='60' cy='120' r='0.8' fill='rgba(255,255,255,0.5)'/%3E%3Ccircle cx='180' cy='80' r='0.5' fill='rgba(255,255,255,0.6)'/%3E%3Ccircle cx='40' cy='180' r='1' fill='rgba(255,255,255,0.8)'/%3E%3C/svg%3E");
+    background-size: 100% 100%, 100% 100%, 250px 250px;
+    background-attachment: fixed;
     
     &::-webkit-scrollbar {
       width: 5px;
       &-thumb {
-        background: rgba(100, 100, 120, 0.6);
+        background: rgba(138, 43, 226, 0.4);
         border-radius: 10px;
         transition: all 0.3s ease;
       }
       &-thumb:hover {
-        background: rgba(120, 120, 150, 0.8);
+        background: rgba(138, 43, 226, 0.8);
       }
     }
     
@@ -236,13 +244,13 @@ const Container = styled.div`
         border-radius: 12px;
         color: #e8e8f0;
         font-weight: 500;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
         word-break: break-word;
         line-height: 1.4;
         
         &:hover {
-          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
           transform: translateY(-1px);
         }
         
@@ -262,8 +270,9 @@ const Container = styled.div`
       justify-content: flex-end;
       width: 100%;
       .content {
-        background: linear-gradient(135deg, #4a5a7e 0%, #3d4d6b 100%);
-        border-radius: 12px 12px 2px 12px;
+        background: linear-gradient(135deg, #8a2be2 0%, #da70d6 100%);
+        border-radius: 16px 16px 2px 16px;
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
       }
     }
     
@@ -271,10 +280,12 @@ const Container = styled.div`
       justify-content: flex-start;
       width: 100%;
       .content {
-        background: linear-gradient(135deg, rgba(80, 80, 110, 0.4) 0%, rgba(70, 70, 100, 0.3) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: #d8d8e8;
-        border-radius: 12px 12px 12px 2px;
+        background: rgba(29, 116, 136, 0.6);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(29, 116, 136, 0.8);
+        color: #ffffff;
+        border-radius: 16px 16px 16px 2px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
       }
     }
   }

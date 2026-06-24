@@ -33,9 +33,10 @@ const Container = styled.div`
   display: grid;
   align-items: center;
   grid-template-columns: 100%;
-  background: linear-gradient(180deg, rgba(34, 34, 48, 0.4) 0%, rgba(26, 26, 38, 0.6) 100%);
+  background: rgba(10, 10, 20, 0.6);
+  backdrop-filter: blur(10px);
   padding: 1rem 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(138, 43, 226, 0.2);
   
   @media screen and (max-width: 720px) {
     padding: 0.8rem 1rem;
@@ -51,18 +52,18 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, rgba(70, 70, 90, 0.3) 0%, rgba(60, 60, 80, 0.2) 100%);
+    background: rgba(20, 20, 40, 0.5);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(138, 43, 226, 0.3);
     padding: 0.5rem 1.2rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2),
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4),
                 inset 0 1px 2px rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
     
     &:focus-within {
-      background: linear-gradient(135deg, rgba(80, 80, 110, 0.4) 0%, rgba(70, 70, 100, 0.3) 100%);
-      border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3),
+      background: rgba(30, 30, 60, 0.6);
+      border-color: rgba(138, 43, 226, 0.8);
+      box-shadow: 0 0 20px rgba(138, 43, 226, 0.4),
                   inset 0 1px 2px rgba(255, 255, 255, 0.08);
     }
     
@@ -81,7 +82,7 @@ const Container = styled.div`
       }
 
       &::selection {
-        background-color: rgba(80, 100, 130, 0.4);
+        background-color: rgba(138, 43, 226, 0.4);
       }
       
       &:focus {
@@ -95,25 +96,26 @@ const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #4a5a7e 0%, #3d4d6b 100%);
+      background: linear-gradient(135deg, #8a2be2 0%, #da70d6 100%);
       border: none;
-      color: #e8e8f0;
+      color: #ffffff;
       font-weight: 600;
       cursor: pointer;
       font-size: 0.85rem;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 10px rgba(138, 43, 226, 0.4);
       white-space: nowrap;
       flex-shrink: 0;
       
       &:hover {
-        background: linear-gradient(135deg, #5a6a8e 0%, #4d5d7b 100%);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, #9a3bf2 0%, #ea80e6 100%);
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
         transform: translateY(-1px);
       }
       
       &:active {
         transform: translateY(0);
+        box-shadow: 0 0 5px rgba(138, 43, 226, 0.4);
       }
       
       @media screen and (max-width: 720px) {

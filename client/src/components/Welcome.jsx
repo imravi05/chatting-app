@@ -20,36 +20,38 @@ const Container = styled.div`
   align-items: center;
   color: #e8e8f0;
   flex-direction: column;
-  background: linear-gradient(135deg, rgba(70, 70, 90, 0.15) 0%, rgba(60, 60, 80, 0.1) 100%);
+  background: transparent;
   gap: 1.5rem;
   animation: fadeIn 0.6s ease;
   padding: 2rem;
   text-align: center;
   
   h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 700;
     text-align: center;
     line-height: 1.6;
     color: #e8e8f0;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     
     @media screen and (max-width: 600px) {
       font-size: 1.5rem;
     }
     
     span {
-      background: linear-gradient(135deg, #7a8aba 0%, #8a9ac8 100%);
+      background: linear-gradient(135deg, #da70d6 0%, #8a2be2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      font-weight: 700;
+      font-weight: 800;
+      text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
     }
   }
   
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 500;
-    color: rgba(232, 232, 240, 0.7);
+    color: rgba(232, 232, 240, 0.8);
     text-align: center;
     
     @media screen and (max-width: 600px) {
@@ -60,11 +62,11 @@ const Container = styled.div`
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(10px) scale(0.95);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
   }
 `;

@@ -81,7 +81,7 @@ const Container = styled.div`
   justify-content: center;
   gap: 0;
   align-items: center;
-  background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 50%, #2d2d40 100%);
+  background: transparent;
   padding: 0;
   margin: 0;
   
@@ -101,10 +101,12 @@ const Container = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: 25% 75%;
-    background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 50%, #2d2d40 100%);
+    background: rgba(11, 11, 26, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-radius: 0;
     overflow: hidden;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
     gap: 0;
     
     @media screen and (min-width: 1200px) and (max-width: 1600px) {
