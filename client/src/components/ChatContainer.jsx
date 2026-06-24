@@ -112,72 +112,169 @@ export default function ChatContainer({ currentChat, currentUser, socket }) {
 
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 10% 80% 10%;
-  gap: 0.1rem;
+  grid-template-rows: 8% 84% 8%;
+  gap: 0;
   overflow: hidden;
+  background: linear-gradient(135deg, #222230 0%, #1a1a25 100%);
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
   @media screen and (min-width: 720px) and (max-width: 1080px) {
     grid-template-rows: 15% 70% 15%;
   }
+  @media screen and (min-width: 600px) and (max-width: 720px) {
+    grid-template-rows: 15% 70% 15%;
+  }
+  @media screen and (min-width: 365px) and (max-width: 600px) {
+    grid-template-rows: 20% 65% 15%;
+  }
+  @media screen and (min-width: 320px) and (max-width: 365px) {
+    grid-template-rows: 20% 65% 15%;
+  }
+  
   .chat-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
+    background: linear-gradient(90deg, rgba(70, 70, 90, 0.2) 0%, rgba(60, 60, 80, 0.15) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    
+    @media screen and (min-width: 720px) and (max-width: 1080px) {
+      padding: 0 1rem;
+      gap: 1rem;
+    }
+    
     .user-details {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
+      animation: slideIn 0.5s ease;
+      min-width: 0;
+      
       .avatar {
         img {
-          height: 3rem;
+          height: 2.2rem;
+          width: 2.2rem;
+          border-radius: 50%;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+          border: 2px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+          flex-shrink: 0;
         }
       }
+      
+      &:hover .avatar img {
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+      }
+      
       .username {
         h3 {
-          color: white;
+          color: #e8e8f0;
+          font-weight: 600;
+          font-size: 0.95rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
     }
   }
+  
   .chat-messages {
-    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
     overflow: auto;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(180deg, rgba(34, 34, 48, 0.6) 0%, rgba(26, 26, 38, 0.8) 100%);
+    
     &::-webkit-scrollbar {
-      width: 0.2rem;
+      width: 5px;
       &-thumb {
-        background-color: #ffffff39;
-        width: 0.1rem;
-        border-radius: 1rem;
+        background: rgba(100, 100, 120, 0.6);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+      &-thumb:hover {
+        background: rgba(120, 120, 150, 0.8);
       }
     }
+    
     .message {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
+      animation: fadeIn 0.3s ease;
+      width: 100%;
+      
       .content {
-        max-width: 40%;
+        max-width: 50%;
         overflow-wrap: break-word;
-        padding: 1rem;
-        font-size: 1.1rem;
-        border-radius: 1rem;
-        color: #d1d1d1;
-        @media screen and (min-width: 720px) and (max-width: 1080px) {
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+        border-radius: 12px;
+        color: #e8e8f0;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        word-break: break-word;
+        line-height: 1.4;
+        
+        &:hover {
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+          transform: translateY(-1px);
+        }
+        
+        @media screen and (max-width: 1080px) {
           max-width: 70%;
+        }
+        
+        @media screen and (max-width: 600px) {
+          max-width: 80%;
+          padding: 0.5rem 0.8rem;
+          font-size: 0.9rem;
         }
       }
     }
+    
     .sended {
       justify-content: flex-end;
+      width: 100%;
       .content {
-        background-color: #4f04ff21;
+        background: linear-gradient(135deg, #4a5a7e 0%, #3d4d6b 100%);
+        border-radius: 12px 12px 2px 12px;
       }
     }
+    
     .recieved {
       justify-content: flex-start;
+      width: 100%;
       .content {
-        background-color: #9900ff20;
+        background: linear-gradient(135deg, rgba(80, 80, 110, 0.4) 0%, rgba(70, 70, 100, 0.3) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #d8d8e8;
+        border-radius: 12px 12px 12px 2px;
       }
     }
   }

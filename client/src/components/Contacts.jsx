@@ -68,80 +68,171 @@ const Container = styled.div`
   display: grid;
   grid-template-rows: 10% 75% 15%;
   overflow: hidden;
-  background-color: #080420;
+  background: linear-gradient(135deg, #222230 0%, #1a1a25 100%);
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  
+  @media screen and (max-width: 720px) {
+    grid-template-rows: 8% 70% 22%;
+  }
+  
   .brand {
     display: flex;
     align-items: center;
     gap: 1rem;
     justify-content: center;
+    background: linear-gradient(90deg, #3a3a4e 0%, #2d2d3e 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    
     h3 {
-      color: white;
+      color: #e8e8f0;
       text-transform: uppercase;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+      
+      @media screen and (max-width: 600px) {
+        font-size: 1rem;
+      }
     }
   }
+  
   .contacts {
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: auto;
-    gap: 0.8rem;
+    gap: 0.6rem;
+    padding: 0.8rem 0;
+    background: linear-gradient(180deg, rgba(34, 34, 48, 0.8) 0%, rgba(26, 26, 38, 0.9) 100%);
+    
     &::-webkit-scrollbar {
-      width: 0.2rem;
+      width: 5px;
+      
       &-thumb {
-        background-color: #ffffff39;
-        width: 0.1rem;
-        border-radius: 1rem;
+        background: rgba(100, 100, 120, 0.6);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+      
+      &-thumb:hover {
+        background: rgba(120, 120, 150, 0.8);
       }
     }
+    
     .contact {
-      background-color: #ffffff34;
-      min-height: 5rem;
+      background: linear-gradient(135deg, rgba(70, 70, 90, 0.4) 0%, rgba(60, 60, 80, 0.3) 100%);
+      backdrop-filter: blur(10px);
+      min-height: 4rem;
       cursor: pointer;
       width: 90%;
-      border-radius: 0.2rem;
-      padding: 0.4rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.6rem 0.8rem;
       display: flex;
-      gap: 1rem;
+      gap: 0.8rem;
       align-items: center;
-      transition: 0.5s ease-in-out;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      
+      &:hover {
+        background: linear-gradient(135deg, rgba(80, 80, 110, 0.5) 0%, rgba(70, 70, 100, 0.4) 100%);
+        border-color: rgba(255, 255, 255, 0.15);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      
       .avatar {
         img {
-          height: 3rem;
+          height: 2.2rem;
+          width: 2.2rem;
+          border-radius: 50%;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+          transition: all 0.3s ease;
+          flex-shrink: 0;
         }
       }
+      
+      &:hover .avatar img {
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+        transform: scale(1.05);
+      }
+      
       .username {
         h3 {
-          color: white;
+          color: #d8d8e0;
+          font-weight: 600;
+          font-size: 0.95rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          transition: all 0.3s ease;
         }
       }
     }
+    
     .selected {
-      background-color: #9a86f3;
+      background: linear-gradient(135deg, rgba(80, 100, 130, 0.6) 0%, rgba(70, 90, 120, 0.5) 100%);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      
+      .username h3 {
+        color: #ffffff;
+        font-weight: 700;
+      }
     }
   }
 
   .current-user {
-    background-color: #0d0d30;
+    background: linear-gradient(135deg, #1a1a25 0%, #222230 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    padding: 0.8rem;
+    flex-wrap: wrap;
+    
+    @media screen and (max-width: 600px) {
+      gap: 1rem;
+      padding: 0.6rem;
+    }
+    
     .avatar {
       img {
-        height: 4rem;
-        max-inline-size: 100%;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+      }
+      
+      &:hover img {
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+        transform: scale(1.05);
       }
     }
+    
     .username {
       h2 {
-        color: white;
+        color: #e8e8f0;
+        font-weight: 600;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 120px;
       }
-    }
-    @media screen and (min-width: 720px) and (max-width: 1080px) {
-      gap: 0.5rem;
-      .username {
+      
+      @media screen and (max-width: 600px) {
         h2 {
-          font-size: 1rem;
+          font-size: 0.85rem;
+          max-width: 100px;
         }
       }
     }

@@ -73,22 +73,51 @@ export default function Chat() {
 }
 
 const Container = styled.div`
+  animation: fadeIn 0.5s ease-in;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: 0;
   align-items: center;
-  background-color: #131324;
+  background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 50%, #2d2d40 100%);
+  padding: 0;
+  margin: 0;
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   .container {
-    height: 85vh;
-    width: 85vw;
-    background-color: #00000076;
+    height: 100vh;
+    width: 100%;
     display: grid;
     grid-template-columns: 25% 75%;
-    @media screen and (min-width: 720px) and (max-width: 1080px) {
+    background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 50%, #2d2d40 100%);
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+    gap: 0;
+    
+    @media screen and (min-width: 1200px) and (max-width: 1600px) {
+      grid-template-columns: 30% 70%;
+    }
+    @media screen and (min-width: 900px) and (max-width: 1200px) {
+      grid-template-columns: 32% 68%;
+    }
+    @media screen and (min-width: 720px) and (max-width: 900px) {
       grid-template-columns: 35% 65%;
+    }
+    @media screen and (max-width: 720px) {
+      grid-template-columns: 0% 100%;
     }
   }
 `;
