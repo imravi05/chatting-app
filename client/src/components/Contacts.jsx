@@ -3,12 +3,10 @@ import styled from "styled-components";
 
 export default function Contacts({ contacts, currentUser, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
-  const [currentUserImage, setCurrentUserImage] = useState(undefined);
   const [currentSelected, setCurrentSelected] = useState(undefined);
 
   useEffect(() => {
     if (currentUser) {
-      setCurrentUserImage(currentUser.avatarImage);
       setCurrentUserName(currentUser.username);
     }
   }, [currentUser]);

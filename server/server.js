@@ -29,7 +29,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3000", // Allow React Frontend
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST","POST"],
   },
 });
 
@@ -42,10 +42,10 @@ io.on("connection", (socket) => {
   });
 });
 
-global.onlineUsers = new Map();
+globalThis.onlineUsers = new Map();
 
 io.on("connection", (socket) => {
-  global.chatSocket = socket;
+  globalThis.chatSocket = socket;
 
   // 1. When a user logs in, map their User ID to this Socket ID
   socket.on("add-user", (userId) => {
